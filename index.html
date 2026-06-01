@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VRFS Team Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --card:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.12);
+  --text:#fff;
+  --muted:#b5b5b5;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* COOL BACKGROUND EFFECT */
+.background{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 45%);
+  animation: floatBg 10s infinite alternate ease-in-out;
+}
+
+@keyframes floatBg{
+  from{transform:scale(1);}
+  to{transform:scale(1.1);}
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,0.6);
+  border-bottom:1px solid var(--border);
+  padding:15px 20px;
+  z-index:1000;
+}
+
+.nav-container{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+
+.nav-container a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:15px;
+  transition:0.3s;
+}
+
+.nav-container a:hover{
+  color:white;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:3rem;
+  letter-spacing:2px;
+}
+
+.hero p{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* SECTIONS */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.title{
+  font-size:1.8rem;
+  margin-bottom:20px;
+}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+/* INPUTS */
+input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:white;
+  outline:none;
+}
+
+button{
+  margin-top:12px;
+  padding:12px 18px;
+  background:white;
+  color:black;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.03);
+}
+
+/* LIST DISPLAY */
+.list-item{
+  padding:10px;
+  border-bottom:1px solid var(--border);
+  color:var(--muted);
+}
+
+/* DISCORD BUTTON */
+.discord{
+  text-align:center;
+  padding:40px;
+}
+
+.discord a{
+  display:inline-block;
+  padding:12px 20px;
+  background:white;
+  color:black;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<nav>
+  <div class="nav-container">
+    <div>VRFS HUB</div>
+    <div>
+      <a href="#players">Players</a>
+      <a href="#managers">Managers</a>
+      <a href="#team">Team Link</a>
+      <a href="#discord">Discord</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>VRFS TEAM HUB</h1>
+    <p>Black & White Competitive Team Management System</p>
+  </div>
+</div>
+
+<!-- PLAYERS -->
+<section id="players">
+  <div class="title">Player Information</div>
+
+  <div class="card">
+    <input id="pname" placeholder="Endgame Name">
+    <input id="pid" placeholder="Player ID">
+    <input id="pdiscord" placeholder="Discord Username">
+
+    <button onclick="addPlayer()">Add Player</button>
+  </div>
+
+  <div class="card" id="playerList"></div>
+</section>
+
+<!-- MANAGERS -->
+<section id="managers">
+  <div class="title">Manager Information</div>
+
+  <div class="card">
+    <input id="mname" placeholder="Endgame Name">
+    <input id="mid" placeholder="Player ID">
+    <input id="mdiscord" placeholder="Discord Username">
+
+    <button onclick="addManager()">Add Manager</button>
+  </div>
+
+  <div class="card" id="managerList"></div>
+</section>
+
+<!-- TEAM LINK -->
+<section id="team">
+  <div class="title">Team Link</div>
+
+  <div class="card">
+    <input id="teamLink" placeholder="Paste Team Discord / Website Link">
+    <button onclick="saveLink()">Save Link</button>
+
+    <div style="margin-top:15px;color:var(--muted)" id="linkDisplay">
+      No link added yet.
+    </div>
+  </div>
+</section>
+
+<!-- DISCORD -->
+<section id="discord">
+  <div class="discord">
+    <h2>Join Team Discord</h2>
+    <p style="color:var(--muted)">Connect with your VRFS squad</p>
+    <br>
+    <a href="#">Join Discord</a>
+  </div>
+</section>
+
+<footer>
+  VRFS Team Hub ©
+</footer>
+
+<script>
+function addPlayer(){
+  const name = document.getElementById("pname").value;
+  const id = document.getElementById("pid").value;
+  const discord = document.getElementById("pdiscord").value;
+
+  if(!name || !id || !discord) return;
+
+  const div = document.createElement("div");
+  div.className = "list-item";
+  div.innerText = `Name: ${name} | ID: ${id} | Discord: ${discord}`;
+
+  document.getElementById("playerList").appendChild(div);
+}
+
+function addManager(){
+  const name = document.getElementById("mname").value;
+  const id = document.getElementById("mid").value;
+  const discord = document.getElementById("mdiscord").value;
+
+  if(!name || !id || !discord) return;
+
+  const div = document.createElement("div");
+  div.className = "list-item";
+  div.innerText = `Name: ${name} | ID: ${id} | Discord: ${discord}`;
+
+  document.getElementById("managerList").appendChild(div);
+}
+
+function saveLink(){
+  const link = document.getElementById("teamLink").value;
+  if(!link) return;
+
+  document.getElementById("linkDisplay").innerHTML =
+    `<a href="${link}" target="_blank" style="color:white">${link}</a>`;
+}
+</script>
+
+</body>
+</html>

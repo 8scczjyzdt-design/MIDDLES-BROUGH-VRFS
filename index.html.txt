@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Middlesbrough VRFS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --card:#121212;
+  --border:#2a2a2a;
+  --text:#ffffff;
+  --muted:#b3b3b3;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 20px;
+}
+
+.logo{
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.nav a{
+  color:var(--muted);
+  margin-left:18px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.nav a:hover{
+  color:white;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  background:radial-gradient(circle at center, rgba(255,255,255,.08), transparent 60%);
+}
+
+.hero h1{
+  font-size:3.5rem;
+  font-weight:800;
+}
+
+.hero p{
+  margin-top:10px;
+  color:var(--muted);
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 22px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:white;
+  color:black;
+}
+
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+.title{
+  font-size:2rem;
+  margin-bottom:25px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:14px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:white;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  border:1px solid var(--border);
+  padding:12px;
+  text-align:left;
+}
+
+/* DISCORD */
+.discord{
+  text-align:center;
+  padding:60px 20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+}
+
+.discord a{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 22px;
+  background:white;
+  color:black;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1{font-size:2.3rem;}
+  .nav a{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav">
+    <div class="logo">MIDDLESBROUGH VRFS</div>
+    <div>
+      <a href="#roster">Roster</a>
+      <a href="#id">ID</a>
+      <a href="#media">Media</a>
+      <a href="#discord">Discord</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>MIDDLESBROUGH VRFS</h1>
+    <p>Black & White. Discipline. Dominance.</p>
+    <a class="btn" href="#discord">Join Discord</a>
+  </div>
+</div>
+
+<section id="roster">
+  <h2 class="title">Team Roster</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Ryan Smith</h3>
+      <p>Striker</p>
+      <p style="color:var(--muted);margin-top:10px;">TikTok | YouTube | Instagram</p>
+    </div>
+
+    <div class="card">
+      <h3>Player Name</h3>
+      <p>Midfielder</p>
+      <p style="color:var(--muted);margin-top:10px;">Social Links</p>
+    </div>
+
+    <div class="card">
+      <h3>Player Name</h3>
+      <p>Defender</p>
+      <p style="color:var(--muted);margin-top:10px;">Social Links</p>
+    </div>
+  </div>
+</section>
+
+<section id="id">
+  <h2 class="title">ID Management</h2>
+
+  <div class="card">
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>VRFS ID</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>Ryan Smith</td>
+        <td>123456</td>
+        <td>Approved</td>
+      </tr>
+      <tr>
+        <td>Player</td>
+        <td>000000</td>
+        <td>Pending</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="media">
+  <h2 class="title">Media Hub</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Match Highlights</h3>
+      <p>Embed YouTube/TikTok links here</p>
+    </div>
+
+    <div class="card">
+      <h3>Top Goals</h3>
+      <p>Player clips & highlights</p>
+    </div>
+
+    <div class="card">
+      <h3>Training</h3>
+      <p>Scrims and practice sessions</p>
+    </div>
+  </div>
+</section>
+
+<section id="discord">
+  <h2 class="title">Discord</h2>
+
+  <div class="discord">
+    <h3>Join Middlesbrough VRFS Community</h3>
+    <p style="color:var(--muted)">Connect with players & staff</p>
+    <a href="#">Join Server</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="title">Contact</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Owner</h3>
+      <p>Armaan</p>
+    </div>
+
+    <div class="card">
+      <h3>Manager</h3>
+      <p>Manager Name</p>
+    </div>
+
+    <div class="card">
+      <h3>Media Team</h3>
+      <p>Media Staff</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Middlesbrough VRFS — All Rights Reserved
+</footer>
+
+<script>
+// smooth scroll enhancement
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener("click",e=>{
+    e.preventDefault();
+    document.querySelector(a.getAttribute("href")).scrollIntoView({
+      behavior:"smooth"
+    });
+  });
+});
+</script>
+
+</body>
+</html>
